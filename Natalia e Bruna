@@ -1,0 +1,49 @@
+int sensor = 12; // o pino 12 refere-se a saida digital do sensor
+int led = 9; // o pino 9 está conectado ao LED da placa (substituto da lâmpada)
+
+int contPalma = 0;
+int palmaSolicitaLigaLed = 1; // acender a luz
+int palmaSolicitaDesligaLed = 2; // apagar a luz
+
+unsigned long tempMaxSom = 350;
+unsigned long tempMinSom = 220;
+unsigned long compriSom = 95; 
+unsigned long time;
+unsigned long startTime = 0;
+
+void setup() {
+  pinMode(sensor, INPUT); 
+  pinMode(led, OUTPUT); 
+  digitalWrite(led, LOW);
+}
+
+void loop() {
+  time = millis();
+  unsigned long tempoDepoisPalma = time - startTime;
+
+  if (tempoDepoisPalma >= compriSom && digitalRead(sensor) == HIGH) {
+
+    if (tempoDepoisPalma < tempMinSom || tempoDepoisPalma > tempMaxSom) {
+
+      contPalma = 0;
+      startTime = millis();
+    }
+    else {
+
+      contPalma ++;
+      startTime = millis();
+    }
+
+    if((contPalma>=palmaSolicitaDesligaLed-1)&&(digitalRead(led)==HIGH)){
+
+      digitalWrite(led, LOW);
+      contPalma = 0;
+    }
+
+    if((contPalma>=palmaSolicitaLigaLed-1)&&(digitalRead(led)==LOW)){
+
+      digitalWrite(led, HIGH);
+      contPalma = 0;
+    }
+  }
+}
