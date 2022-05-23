@@ -33,6 +33,58 @@ void loop() {
       contPalma ++;
       startTime = millis();
     }
+    
+    
+    Instruções 
+Esse projeto refere-se a uma automação residencial acionado por palmas, onde com os passos abaixo e requisitos, você poderá implementá-lo e automatizar sua residência para que as luzes se acendam e apaguem de modo inteligente.
+Instruções detalhadas para desenvolvedor
+Led Inteligente com sensor de som
+O sistema de Led Inteligente com sensor de som, é um circuito de automação residencial que acende os Leds através da internet. A finalidade é facilitar o dia a dia das pessoas porque possibilita acender, apagar e controlar a intensidade da luz por controle remoto, além de proporcionar a economia de energia e consequentemente oferecer resultados reais e palpáveis, no que diz respeito à sustentabilidade.
+Começando
+Essas instruções permitirão que você faça uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+
+Requisitos de Sistema
+● Mínimo
+○ SO: Windows Vista
+○ Processador: Intel Core 2 Duo
+○ Memória Ram: 1GB
+○ HD: 8 GB
+
+Pré-requisitos
+Requisitos para rodar localmente no computador do desenvolvedor
+- Oracle VM Virtual BOX
+- Arduino - versão 1.8.19
+- Node.js - Versão 16.15.0
+- Node-RED
+Instalação
+Instruções para execução local:
+1. Baixar os arquivos do repositório do github (https://github.com/natiarnoldi/Arduino);
+2. Acessar a pasta “Arduino/Natalia e Bruna”. Desta forma, será possível acessar o código fonte do projeto;
+3. Fazer download da máquina virtual VM Virtual BOX (https://www.virtualbox.org/);
+4. Fazer download da última versão do Node.js (https://nodejs.org/en/download/current/);
+5. Fazer download do Arduino (https://www.arduino.cc/en/software). Utilizar no Arduino o código fonte disponibilizado no repositório.
+6. Digitar cmd para abrir o prompt de comando do Windows e digitar npm install -g –unsafe-perm node-red para instalação do Node-RED;
+7. Abrir novamente o prompt de comando e digitar node-red, para executar a ferramenta. Quando aparecer a mensagem “Server now running at http://127.0.0.1:1880”, o servidor está pronto para executar;
+8. Abrir o navegador e digitar localhost:1880;
+9. No nosso caso, só conseguimos utilizar o Node-RED após instalação e utilização através da máquina virtual;
+10. Para a integração do Arduino com o Node-RED, é necessária a instalação de alguns pacotes. Abra o prompt de comando e digite npm i --unsafe-perm serialport para Suporte para a comunicação Serial no Node.js.;
+11. Para a comunicação via protocolo Firmarta, é necessária a instalação do pacote serialport, digitando no prompt de comando npm i --unsafe-perm node-red-node-arduino;
+12. Para a construção de Dashboards, digite npm i --unsafe-perm node-red-dashboard.
+
+
+Em Desenvolvimento
+Construído com: 
+Linguagem Java. 
+
+Versão
+Estamos usando a versão 1.0
+
+Autores
+Integrantes do grupo:
+Bruna Alana Pinto Dos Santos
+Natalia Arnoldi Paranhos da Silva
+
+
 
     if((contPalma>=palmaSolicitaDesligaLed-1)&&(digitalRead(led)==HIGH)){
 
